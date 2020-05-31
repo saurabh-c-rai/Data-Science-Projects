@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "D:\\PythonEnvironment\\AirlinesHackathon"
+		}
+	],
+	"settings": {
+		"python.pythonPath": "D:/PythonEnvironment/ML_Environment/Scripts/python.exe",
+		"python.jediEnabled": false,
+	}
+}
