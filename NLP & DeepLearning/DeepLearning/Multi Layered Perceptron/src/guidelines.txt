@@ -1,0 +1,9 @@
+Task 1:
+First load the data in order to have a high level overview. Quite possibly the simplest of all tasks that you will be peforming throughout the entire course :)
+
+Instructions
+Load the csv file by passing path argument to .read_csv() method of pandas. Save it as data
+Use .describe() method of data to look at its properties
+Look at the first five observations of data using .head() method
+
+Task 2:
