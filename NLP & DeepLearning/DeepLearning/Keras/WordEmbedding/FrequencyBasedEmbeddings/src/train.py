@@ -1,13 +1,14 @@
 #%%
+# Importing modules
 import re
+
 import nltk
 import numpy as np
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 #%%
-
+# Defining corpus
 corpus = [
     "Alice was beginning to get very tired of sitting by her sister on the bank",
     "What is the use of a book, thought Alice `without pictures or conversation",
@@ -20,12 +21,23 @@ corpus = [
 ]
 
 #%%
-
+# Getting set of stopwords
 stop_words = nltk.corpus.stopwords.words("english")
 
 #%%
+# Defining function for preprocessing
 def preprocess_document(corpus):
+    """Function to preprocess the corpus. Following actions will be performed :-
+    - words will be converted to lower case
+    - redundant spaces will be removed
+    - stopwords from nltk library will be removed 
 
+    Arguments:
+        corpus {[String]} -- [Sentences]
+
+    Returns:
+        [String] -- [Cleaned sentence]
+    """
     # lower the string and strip spaces
     corpus = corpus.lower()
     corpus = corpus.strip()
@@ -53,8 +65,8 @@ preprocess_document = np.vectorize(preprocess_document)
 # %%
 clean_corpus = preprocess_document(corpus_df)
 
-
 # %%
+# Initializing count vectorizer object
 countVector = CountVectorizer()
 
 # %%
@@ -65,4 +77,22 @@ cv_vocab = countVector.get_feature_names()
 # %%
 cv_df = pd.DataFrame(data=cv_matrix, columns=cv_vocab)
 cv_df.head()
+
+#%%
+# creating a TF-IDF vectorizer object
+tf_idf = TfidfVectorizer()
+
+
+# %%
+tv_matrix = tf_idf.fit_transform(clean_corpus.ravel()).toarray()
+
+
+# %%
+tv_vocab = tf_idf.get_feature_names()
+
+
+# %%
+tv_df = pd.DataFrame(data=tv_matrix, columns=tv_vocab)
+tv_df
+
 # %%
