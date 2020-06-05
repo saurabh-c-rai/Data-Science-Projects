@@ -9,6 +9,14 @@ import tensorflow as tf
 # %%
 import tensorflow_datasets as tfds
 from keras import Sequential
+from keras.layers import (
+    Dense,
+    Activation,
+    BatchNormalization,
+    Dropout,
+    Embedding,
+    Flatten,
+)
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 
@@ -67,15 +75,12 @@ print(decode_review(padded[3]))
 print("=" * 50)
 print(training_sentences[3])
 # %%
-model = keras.Sequential(
-    [
-        keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
-        keras.layers.Flatten(),
-        keras.layers.Dense(16, activation="relu"),
-        keras.layers.Dense(32, activation="relu"),
-        keras.layers.Dense(1, activation="sigmoid"),
-    ]
-)
+model = Sequential()
+model.add(Embedding(vocab_size, embedding_dim, input_length=max_length))
+model.add(Flatten())
+model.add(Dense(16, activation="relu"))
+model.add(Dense(32, activation="relu"))
+model.add(Dense(1, activation="sigmoid"))
 
 model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 model.summary()
