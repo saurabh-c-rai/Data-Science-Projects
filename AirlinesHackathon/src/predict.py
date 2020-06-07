@@ -26,7 +26,7 @@ def predict():
     for FOLD in range(5):
         clf = joblib.load(
             path.join(
-                "/mnt/d/PythonEnvironment/AirlinesHackathon/models",
+                "/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/model",
                 f"{MODEL}_{FOLD}.pkl",
             )
         )
@@ -40,8 +40,8 @@ def predict():
 
     predictions = predictions / 5
     print(4, predictions.shape)
-    pred_class = np.argwhere(predictions > 0.5)[:, 1]
-    print(2, len(pred_class))
+    pred_class = np.argmax(predictions, axis=1)
+    print(2, pred_class.shape)
     submission_df = pd.DataFrame(columns=["Accident_ID", "Severity"])
     submission_df["Accident_ID"] = df["Accident_ID"]
     print(3, submission_df.shape)
@@ -54,7 +54,6 @@ if __name__ == "__main__":
     submission = predict()
     print(submission)
     submission.to_csv(
-        f"/mnt/d/PythonEnvironment/AirlinesHackathon/input/submission_{MODEL}_{FOLD}.csv",
+        f"/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/output/submission_{MODEL}.csv",
         index=False,
     )
-

@@ -5,10 +5,8 @@ import sys
 import pandas as pd
 from sklearn import model_selection
 
-print test
-
 if __name__ == "__main__":
-    df = pd.read_csv("/input/train.csv")
+    df = pd.read_csv("../input/train.csv")
     df["kfold"] = -1
 
     df = df.sample(frac=1).reset_index(drop=True)
@@ -18,7 +16,7 @@ if __name__ == "__main__":
     X = df.iloc[:, 1:].copy()
     y = df.iloc[:, 0].copy()
     for fold, (train_idx, val_idx) in enumerate(kf.split(X=X, y=y)):
-        print (len(train_idx), len(val_idx))
+        print(len(train_idx), len(val_idx))
         df.loc[val_idx, "kfold"] = fold
 
-    df.to_csv("AirlinesHackathon/input/train_folds.csv", index=False)
+    df.to_csv("../input/train_folds.csv", index=False)
