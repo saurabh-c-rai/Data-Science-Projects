@@ -1,9 +1,9 @@
 #!/bin/bash
 
-export TRAINING_DATA=/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/input/train_folds.csv
+export TRAINING_DATA=../tmp/train_folds.csv
 export FOLD=0
-export TRAIN_FILE_PATH=/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/input/train.csv
-export TEST_FILE_PATH=/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/input/test.csv
+export TRAIN_FILE_PATH=../input/train.csv
+export TEST_FILE_PATH=../input/test.csv
 export MODEL=$1
 
 # echo "Choose a FOLD value for validation set"
