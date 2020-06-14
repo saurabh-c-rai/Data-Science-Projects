@@ -26,12 +26,7 @@ def predict():
     }
 
     for FOLD in range(5):
-        clf = joblib.load(
-            path.join(
-                "/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/models",
-                f"{MODEL}_{FOLD}/model.pkl",
-            )
-        )
+        clf = joblib.load(path.join("../models", f"{MODEL}_{FOLD}/model.pkl",))
 
         preds = clf.predict_proba(test_df)
         print(1, preds.shape)
@@ -56,8 +51,7 @@ if __name__ == "__main__":
         submission = predict()
         print(submission)
         submission.to_csv(
-            f"/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/output/submission_{MODEL}.csv",
-            index=False,
+            f"../output/submission_{MODEL}.csv", index=False,
         )
         log_param("Stage", "Prediction Done")
-        log_artifacts(f"../Output")
+        log_artifacts(f"../output")

@@ -88,9 +88,8 @@ if __name__ == "__main__":
         #     f"/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/model/{MODEL}_{FOLD}.pkl",
         # )
         sklearn.save_model(
-            clf,
-            f"/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/model/{MODEL}_{FOLD}",
+            clf, f"../models/{MODEL}_{FOLD}",
         )
         log_param("FOLD", FOLD)
         log_param("Stage", "Training completed")
-        log_artifact(f"../model/{MODEL}_{FOLD}/model.pkl")
+        log_artifact(f"../models/{MODEL}_{FOLD}/model.pkl")
