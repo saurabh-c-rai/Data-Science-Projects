@@ -92,7 +92,7 @@ tv_vocab = tf_idf.get_feature_names()
 
 
 # %%
-tv_df = pd.DataFrame(data=tv_matrix, columns=tv_vocab)
+tv_df = pd.DataFrame(data=np.round(tv_matrix, 2), columns=tv_vocab)
 tv_df
 
 # %%
