@@ -173,7 +173,7 @@ L2_PENALTY = 0.0001
 
 #%%
 # Creating embedding layer
-with open("../input/glove.6B.50d.txt") as glove:
+with open("../models/glove.6B.50d.txt") as glove:
     embedding_dict = {}
     for x in glove.readlines():
         word_vectors = x.split()
