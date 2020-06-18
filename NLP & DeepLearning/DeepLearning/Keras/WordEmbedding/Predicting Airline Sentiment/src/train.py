@@ -1,4 +1,10 @@
 #%%
+import os
+
+cd_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(cd_path)
+
+#%%
 # Import libraries
 from string import punctuation
 
@@ -142,6 +148,8 @@ tok = Tokenizer(num_words=max_words, oov_token="<OOV>")
 tok.fit_on_texts(X_train)
 word_index = tok.word_index
 
+vocab_size = len(word_index) + 1
+
 # %%
 # Creating train & validation sequence
 train_sequences = tok.texts_to_sequences(X_train)
@@ -163,11 +171,36 @@ DROPOUT_RATE = 0.3
 L1_PENALTY = 0.0001
 L2_PENALTY = 0.0001
 
+#%%
+# Creating embedding layer
+with open("../input/glove.6B.50d.txt") as glove:
+    embedding_dict = {}
+    for x in glove.readlines():
+        word_vectors = x.split()
+        word = word_vectors[0]
+        embedding_dict[word] = np.asarray(word_vectors[1:], dtype="float32")
+
+print("Loaded %s word vectors." % len(embedding_dict))
+
+#%%
+embedding_matrix = np.zeros((vocab_size, 50))
+for word, i in word_index.items():
+    embedding_vector = embedding_dict.get(word)
+    if embedding_vector is not None:
+        embedding_matrix[i] = embedding_vector
 # %%
 # Instantiating sequential model
 model = Sequential()
 # model.add(Dense(input_shape=(INPUT_SHAPE,), units=max_len))
-model.add(Embedding(input_dim=max_words, output_dim=50, input_length=INPUT_SHAPE))
+model.add(
+    Embedding(
+        input_dim=vocab_size,
+        output_dim=50,
+        input_length=INPUT_SHAPE,
+        weights=[embedding_matrix],
+        trainable=False,
+    )
+)
 model.add(BatchNormalization())
 
 # Adding hidden layers
