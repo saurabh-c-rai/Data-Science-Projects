@@ -1,5 +1,12 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
+#%%
+# working directory
+import os
+
+cd_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(cd_path)
+
 # %%
 # Import NLTK
 import nltk
