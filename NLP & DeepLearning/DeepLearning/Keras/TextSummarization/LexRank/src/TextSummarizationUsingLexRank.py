@@ -33,11 +33,11 @@ for file_path in documents_dir.files("*.txt"):
         documents.append(fp.readlines())
 
 # %%
-sentences = sent_tokenize(text)
 lxr = LexRank(documents, stopwords=STOPWORDS["en"])
 
 #%%
 # get summary with classical LexRank algorithm
+sentences = sent_tokenize(text)
 summary = lxr.get_summary(sentences, summary_size=2, threshold=0.1)
 print(summary)
 
