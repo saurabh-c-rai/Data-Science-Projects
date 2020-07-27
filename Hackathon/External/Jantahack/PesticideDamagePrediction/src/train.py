@@ -59,32 +59,17 @@ if __name__ == "__main__":
         train_df.drop(columns=["Crop_Damage", "ID", "kfold"], inplace=True)
         valid_df.drop(columns=["Crop_Damage", "ID", "kfold"], inplace=True)
 
-        # param_grid = {
-        #     "preprocessor__numerical_transformation_pipeline__imputer__strategy": [
-        #         "mean",
-        #         "median",
-        #     ],
-        #     "classifier__max_depth": [2, 5, 7],
-        #     "classifier__n_estimators": [100, 200, 500, 700],
-        #     "classifier__class_weight": ["balanced", "balanced_subsample"],
-        # }
         clf = dispatcher.MODELS[MODEL]
-        # grid_search = RandomizedSearchCV(
-        #     clf, param_grid, n_iter=7, scoring="accuracy", verbose=2
-        # )
         clf.fit(train_df, ytrain)
         preds = clf.predict(valid_df)
         metric_data(yvalid, preds)
-        # joblib.dump(
-        #     clf,
-        #     f"/Users/raisaurabh04/Downloads/GitHub/Data-Science-Projects/AirlinesHackathon/model/{MODEL}_{FOLD}.pkl",
-        # )
-        # sklearn.save_model(
-        #     clf, f"../models/{MODEL}_{FOLD}",
-        # )
+        sklearn.save_model(
+            clf, f"../models/{MODEL}_{FOLD}",
+        )
         sklearn.log_model(
-            sk_model=clf, artifact_path="model", registered_model_name="model-sklearn",
+            sk_model=clf,
+            artifact_path=f"models/{MODEL}_{FOLD}",
+            registered_model_name=f"{MODEL}_{FOLD}",
         )
         log_param("FOLD", FOLD)
         log_param("Stage", "Training completed")
-        log_artifact(f"../models/{MODEL}_{FOLD}")

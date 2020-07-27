@@ -3,8 +3,6 @@ from os import environ, path
 import numpy as np
 import pandas as pd
 import joblib
-
-import dispatcher
 import mlflow
 from mlflow import log_artifacts, log_param
 
