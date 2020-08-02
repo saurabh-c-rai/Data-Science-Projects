@@ -5,19 +5,24 @@ import numpy as np
 #%%
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import Model
+from tensorflow.keras import Model, optimizers
 from tensorflow.keras.layers import Input, LSTM, Dense
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from numpy.random import seed
 from tensorflow_core import metrics
 
 seed(1)
 tf.random.set_seed(2)
+#%%
+import os
 
+cd_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(cd_path)
 #%%
 # Setting training environments and other variables
-train_batch_size = 64
-epochs = 5
-latent_dim = 256
+train_batch_size = 256
+epochs = 50
+latent_dim = 128
 num_samples = 10000
 
 # %%
@@ -39,7 +44,9 @@ target_chars = set()
 lines = open("../input/fra.txt", encoding="utf-8").read().split("\n")
 
 # %%
+i = 0
 for line in lines:
+    i += 1
     try:
         if len(line) > 1:
             input_text, target_text, _ = line.split("\t")
@@ -51,7 +58,6 @@ for line in lines:
             for char in input_text:
                 if char not in input_chars:
                     input_chars.add(char)
-                    print(char)
 
             # Create a set of all unique output characters
             for char in target_text:
@@ -59,6 +65,8 @@ for line in lines:
                     target_chars.add(char)
     except:
         print(f"Exception thrown in line {line}")
+    if i > 100000:
+        break
 
 
 # %%
@@ -133,7 +141,6 @@ print("Done preparing data for training")
 # %%
 # Define an input sequence and process it.
 encoder_inputs = Input(shape=(None, num_encoder_tokens), name="encoder_inputs")
-
 # The return_state contructor argument, configuring a RNN layer to return a list
 # where the first entry is the outputs and the next entries are the internal RNN states.
 # This is used to recover the states of the encoder.
@@ -165,22 +172,106 @@ decoder_outputs = decoder_dense(decoder_outputs)
 # `encoder_input_data` & `decoder_input_data` into `decoder_target_data`
 model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
 
+#%%
+# EarlyStopping & ModelCheckpoint
+early_stopping = EarlyStopping(monitor="val_loss", patience=5, verbose=1,)
 
+save_best = ModelCheckpoint(
+    "../models/save_best_1.h5", monitor="val_loss", verbose=1, save_best_only=True,
+)
+
+adam = optimizers.Adam(
+    learning_rate=0.005,
+    beta_1=0.9,
+    beta_2=0.999,
+    epsilon=1e-07,
+    amsgrad=True,
+    name="Adam",
+)
 # %%
 # Run training
-model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['accuracy'])
+model.compile(optimizer=adam, loss="categorical_crossentropy", metrics=["accuracy"])
 model.summary()
 #%%
 model.fit(
     [encoder_input_data, decoder_input_data],
     decoder_target_data,
-    batch_size=1000,
+    batch_size=train_batch_size,
     epochs=epochs,
     validation_split=0.2,
+    callbacks=[early_stopping, save_best],
 )
 # Save model
 # model.save('s2s.h5')
 
 
-
 # %%
+# Define the encoder model
+encoder_model = Model(encoder_inputs, encoder_states)
+# define decoder initial states
+decoder_state_input_h = Input(shape=(latent_dim,))
+decoder_state_input_c = Input(shape=(latent_dim,))
+decoder_states_inputs = [decoder_state_input_h, decoder_state_input_c]
+decoder_outputs, state_h, state_c = decoder_lstm(
+    decoder_inputs, initial_state=decoder_states_inputs
+)
+decoder_states = [state_h, state_c]
+# define decoder output seq and model
+decoder_outputs = decoder_dense(decoder_outputs)
+decoder_model = Model(
+    [decoder_inputs] + decoder_states_inputs, [decoder_outputs] + decoder_states
+)
+
+#%%
+# Reverse-lookup token index to decode sequences back to
+# something readable.
+reverse_input_char_index = dict((i, char) for char, i in input_token_index.items())
+reverse_target_char_index = dict((i, char) for char, i in target_token_index.items())
+
+#%%
+def decode(input_seq):
+    # Encode the input as state vectors.
+    states_value = encoder_model.predict(input_seq)
+
+    # Generate empty target sequence of length 1.
+    target_seq = np.zeros((1, 1, num_decoder_tokens))
+    # Populate the first character of target sequence with the start character.
+    target_seq[0, 0, target_token_index["\t"]] = 1.0
+
+    # Sampling loop for a batch of sequences
+    # (to simplify, here we assume a batch of size 1).
+    stop_condition = False
+    decoded_sentence = ""
+    while not stop_condition:
+        output_tokens, h, c = decoder_model.predict([target_seq] + states_value)
+
+        # Sample a token
+        sampled_token_index = np.argmax(output_tokens[0, -1, :])
+        sampled_char = reverse_target_char_index[sampled_token_index]
+        decoded_sentence += sampled_char
+
+        # Exit condition: either hit max length
+        # or find stop character.
+        if sampled_char == "\n" or len(decoded_sentence) > max_decoder_seq_length:
+            stop_condition = True
+
+        # Update the target sequence (of length 1).
+        target_seq = np.zeros((1, 1, num_decoder_tokens))
+        target_seq[0, 0, sampled_token_index] = 1.0
+
+        # Update states
+        states_value = [h, c]
+
+    return decoded_sentence
+
+
+#%%
+for seq_index in range(100):
+    # Take one sequence (part of the training set)
+    # for trying out decoding.
+    input_seq = encoder_input_data[seq_index : seq_index + 1]
+    decoded_sentence = decode(input_seq)
+    print("-")
+    print("Input sentence:", input_texts[seq_index])
+    print("Decoded sentence:", decoded_sentence)
+
