@@ -299,3 +299,25 @@ print(accuracy_score(y_test, y_pred))
 bagging_pipeline.fit(X_train, y_train)
 y_pred = bagging_pipeline.predict(X_test)
 print(accuracy_score(y_test, y_pred))
+
+#%%
+test_data = pd.read_csv("../input/test.csv", index_col="ID")
+
+
+# %%
+test_data["Segmentation"] = randomforest_pipeline.predict(test_data)
+
+#%%
+test_data["Segmentation"] = label_encoder.inverse_transform(test_data[["Segmentation"]])
+# %%
+test_data.reset_index(inplace=True)
+
+
+# %%
+test_data[["ID", "Segmentation"]].to_csv(
+    "../output/randomforest_submission_1.csv", index=False
+)
+
+
+# %%
+
