@@ -16,16 +16,26 @@
 # As we saw in the last tutorial let's load the dataset for processing
 
 # %%
+## NOTE: The next cell will take a lot of time so update your epochs accordingly
+from __future__ import absolute_import, division, print_function
+
+import re
+import time
+import unicodedata
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# %%
 import pandas as pd
 import tensorflow as tf
-import unicodedata
-import re
-import numpy as np
 from sklearn.model_selection import train_test_split
-import time
-import matplotlib.pyplot as plt
 
+#%%
+import os
 
+cd_path = os.path.dirname(os.path.realpath(__file__))
+os.chdir(cd_path)
 # %%
 path_to_file = "../input/fra.txt"
 df = pd.read_csv(path_to_file, delimiter="\t", header=None)
@@ -305,11 +315,6 @@ def loss_function(real, pred):
 
 
 # %%
-## NOTE: The next cell will take a lot of time so update your epochs accordingly
-from __future__ import absolute_import, division, print_function
-
-
-# %%
 EPOCHS = 5
 
 for epoch in range(EPOCHS):
@@ -446,4 +451,3 @@ sentence = "Je suis libre"
 translate(
     sentence, encoder, decoder, inp_lang, targ_lang, max_length_inp, max_length_targ
 )
-
