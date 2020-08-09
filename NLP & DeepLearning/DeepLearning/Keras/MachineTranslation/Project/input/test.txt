@@ -1,0 +1,246 @@
+No way!	¡Minga!
+No way!	¡Ni en pedo!
+Really?	¿En serio?
+Really?	¿La verdad?
+Thanks.	¡Gracias!
+Thanks.	Gracias.
+Try it.	Pruébalo.
+We try.	Lo procuramos.
+We won.	Ganamos.
+Why me?	¿Por qué yo?
+Ask Tom.	Pregúntale a Tom.
+Awesome!	¡Órale!
+Be calm.	Mantente en calma.
+Be cool.	Estate tranquilo.
+Be fair.	Sé justo.
+Be good.	Sé bueno.
+Be good.	Sé buena.
+Be good.	Sed buenas.
+Be good.	Sed buenos.
+Be good.	Sea buena.
+Be good.	Sea bueno.
+Be good.	Sean buenas.
+Be good.	Sean buenos.
+Be kind.	Sean gentiles.
+Be nice.	Sé agradable.
+Beat it.	Pírate.
+Call me.	Llamame.
+Call me.	Llamadme.
+Call me.	Llámame.
+Call us.	Llámanos.
+Come in.	Entre.
+Come in.	Pase.
+Come in.	¡Entren!
+Come on!	¡Órale!
+Come on.	Ándale.
+Come on.	¡Órale!
+Drop it!	Suéltalo.
+Get Tom.	Agarra a Tom.
+Get out!	Bájate.
+Get out.	Salte.
+Am I fat?	¿Estoy gordo?
+Am I fat?	¿Estoy gorda?
+Ask them.	Preguntales.
+Ask them.	Pregúntales.
+Back off!	Aparta.
+Back off.	Apártate.
+Be a man.	Sé un hombre.
+Be brave.	Sé fuerte.
+Be brief.	Sé breve.
+Be brief.	Sea breve.
+Be brief.	Sean breves.
+Be quiet.	Estate quieto.
+Be still.	No te muevas.
+Call Tom.	¡Llamalo a Tomás!
+Call Tom.	¡Llámalo a Tomás!
+Call Tom.	¡Llámenlo a Tomás!
+Cheer up!	Anímate.
+Cheer up.	Venga.
+Cool off!	¡Cálmate!
+Cuff him.	Espósale.
+Don't go.	No te vayas.
+Drive on.	Continúa.
+Find Tom.	Encontralo a Tomás.
+Find Tom.	Encuéntralo a Tomás.
+Find Tom.	Encuéntrelo a Tomás.
+Don't move.	No se muevan.
+Don't sing.	No cantes.
+Don't sing.	No canten.
+Don't stop.	No pares.
+Don't talk!	¡No hables!
+Don't talk.	No hables.
+Don't wait.	¡No esperes!
+Don't wait.	¡No esperen!
+Don't wait.	No esperes.
+Don't yell.	No grites.
+Don't yell.	No chilles.
+Don't yell.	No chilléis.
+Don't yell.	No chille.
+Don't yell.	No chillen.
+Eat slowly.	Come despacio.
+Eat slowly.	¡Comé despacio!
+Face facts!	¡Enfréntate a los hechos!
+Face facts!	¡Enfrentaos a los hechos!
+Face facts!	¡Enfréntese a los hechos!
+Face facts!	¡Enfréntense a los hechos!
+Fire burns.	El fuego quema.
+Follow Tom.	Seguilo a Tomás.
+Follow Tom.	Síguelo a Tomás.
+Follow Tom.	Sígalo a Tomás.
+Follow Tom.	Síganlo a Tomás.
+Follow him.	Síguele.
+Follow him.	Síguelo.
+Forget Tom.	Olvidate de Tomás.
+Forget Tom.	Olvídate de Tomás.
+Forget Tom.	Olvídese de Tomás.
+Forget him.	Olvídenlo.
+Forgive us.	Perdónanos.
+I help him.	Le ayudo.
+I knew Tom.	Conocí a Tom.
+I know Tom.	Conozco a Tom.
+I know her.	La conozco.
+I know him.	Lo conozco.
+I know now.	Ahora sé.
+I know you.	Te conozco.
+I know you.	Os conozco.
+I know you.	Les conozco.
+I know you.	Yo a usted le conozco.
+I know you.	Yo a ustedes les conozco.
+I like Tom.	Me agrada Tom.
+I like art.	Me gusta el arte.
+I like him.	Me gusta él.
+I like him.	Él me gusta.
+I like tea.	Me gusta el té.
+I like you.	Me agradas.
+I liked it.	Me gustó.
+I love Tom.	Lo amo a Tomás.
+I love him.	Yo lo amo.
+I love him.	Lo amo.
+I love you.	Te quiero.
+I love you.	Te amo.
+I love you.	¡Te amo!
+I love you.	Os amo.
+I loved it.	Me encantó.
+I miss Tom.	Echo de menos a Tom.
+I miss him.	Le echo de menos.
+I miss him.	Lo extraño.
+I miss you.	Te echo de menos.
+I must run.	Tengo que correr.
+I need Tom.	Necesito a Tom.
+I need ice.	Necesito hielo.
+I objected.	Objeté.
+I promised.	Prometí.
+I ran home.	Me fui corriendo a casa.
+I ran home.	Me apresuré a ir a casa.
+I remember.	Me acuerdo.
+I remember.	Yo me acuerdo.
+Say cheese.	Di güisqui.
+Say cheese.	Decid güisqui.
+Say cheese.	Sonría.
+Say please.	Di "por favor".
+Shadow him.	Síguelo.
+She is old.	Es vieja.
+She smiled.	Sonrió.
+She's busy.	Ella está ocupada.
+She's nice.	Es guapa.
+Sing along.	Canta.
+Smell this.	Huele esto.
+Smell this.	Olé esto.
+Smell this.	Huelan esto.
+Smell this.	Oled esto.
+Smell this.	Huela esto.
+Stand back!	¡Retrocede!
+Start here.	Empieza aquí.
+Start over.	Empieza de nuevo.
+Stay alert.	Mantente alerta.
+Stay awake.	Mantente consciente.
+Stay awake.	Mantente despierto.
+Stay awake.	No te duermas.
+Stay close.	Mantente cerca.
+Stay close.	No te alejes de aquí.
+Stay close.	Quédate a mi vera.
+Stay sharp.	Mantente alerta.
+Stay still.	No te muevas.
+Stay still.	Quieto.
+Stay there.	Quédate ahí.
+I hate dogs.	Odio los perros.
+I hate milk.	Odio la leche.
+I hate rats.	Odio a las ratas.
+I hate sand.	Odio la arena.
+I hate sand.	Yo odio la arena.
+I hated Tom.	Yo odiaba a Tom.
+I hated Tom.	Yo odié a Tom.
+I have $300.	Tengo trescientos dólares.
+I have gout.	Tengo gota.
+I have news.	Traigo noticias.
+I have time.	Tengo tiempo.
+I have wine.	Tengo vino.
+I hear that.	Yo escucho eso.
+I heard you.	Te oí.
+I heard you.	Te he oído.
+I hired Tom.	Contraté a Tom.
+I knew that.	Lo sabía.
+I knew that.	Yo sabía eso.
+I know that.	Yo sé eso.
+I know them.	Los conozco.
+I know this.	Esto lo sé.
+I know this.	Conozco esto.
+I went home.	Me fui a casa.
+I went, too.	Yo también fui.
+I will wait.	Esperaré.
+I will work.	Voy a trabajar.
+I won again.	Gané otra vez.
+I won't ask.	Yo no preguntaré.
+I work here.	Trabajo aquí.
+I'd ask Tom.	Yo le preguntaría a Tom.
+I'll change.	Cambiaré.
+I'll try it.	Lo probaré.
+I'm 17, too.	Yo también tengo 17 años.
+I'm a baker.	Soy panadero.
+I'm a loser.	Soy un perdedor.
+I'm a loser.	Soy una perdedora.
+I'm a woman.	Soy una mujer.
+I'm a woman.	Soy mujer.
+I'm at home.	Estoy en casa.
+I'm at home.	Ya estoy en casa.
+I'm at home.	Estoy en la casa.
+I'm baffled.	Estoy desconcertado.
+I'm cooking.	Estoy cocinando.
+I'm curious.	Tengo curiosidad.
+I'm dancing.	Estoy bailando.
+I'm engaged.	Estoy comprometida.
+I'm excited.	Estoy emocionado.
+I'm excited.	Estoy emocionada.
+I'm fasting.	Estoy ayunando.
+I'm finicky.	Soy quisquilloso.
+I'm healthy.	Estoy saludable.
+I'm in jail.	Estoy en la cárcel.
+I'm in love.	Estoy enamorada.
+I'm jittery.	Estoy nervioso.
+Let's start.	Comencemos.
+Life is fun.	La vida es divertida.
+Look at Tom.	Mira a Tom.
+Look at him.	Míralo.
+Look closer.	Mira desde más cerca.
+Look for it.	Busca.
+Make a list.	Haz una lista.
+Make a list.	Hagan una lista.
+Make a wish.	Pide un deseo.
+Many thanks.	¡Muchas gracias!
+Memorize it.	Memórizalo.
+Memorize it.	Memórizala.
+Money talks.	El dinero mueve el mundo.
+Money talks.	Poderoso caballero es Don Dinero.
+Nice timing.	Justo a tiempo.
+Nice timing.	Llegas bien.
+Nice timing.	Llegas a tiempo.
+No means no.	No significa no.
+No means no.	"No" significa "no".
+No one came.	Nadie vino.
+No one came.	No vino nadie.
+No one came.	Ninguno acudió.
+No one died.	Nadie murió.
+No one died.	No murió nadie.
+Nobody came.	Nadie vino.
+Nobody came.	No vino nadie.
+Nobody came.	No ha venido nadie.
