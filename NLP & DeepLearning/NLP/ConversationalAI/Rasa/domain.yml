@@ -1,0 +1,53 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- enquiry
+- vegetarian
+- non_veg
+- eggitarian
+- order_name_veg
+- order_name_non_veg
+- order_name_egg
+responses:
+  utter_botgreet:
+  - text: How can i help you sir?
+  utter_veg_non_veg_egg:
+  - buttons:
+    - payload: /vegetarian
+      title: Veg cusine
+    - payload: /non_veg
+      title: Non-Veg cusine
+    - payload: /eggitarian
+      title: Egg cusine
+    text: 'what would you prefer:'
+  utter_veg:
+  - image: https://image.shutterstock.com/image-vector/restaurant-menu-design-template-layout-260nw-298799282.jpg
+    text: 'we have these options for you:'
+  utter_non_veg:
+  - text: we have chicken butter masala, fish curry, etc
+  utter_egg:
+  - text: we have egg curry, boiled eggs, bread, omlette, etc
+  utter_anthingelse:
+  - text: Is there any thing else sir?
+  utter_thanks:
+  - text: Thanks. We will get your order shortly. Please provide [ ] {link}
+  utter_goodbye:
+  - text: Bye
+actions:
+- utter_goodbye
+- utter_botgreet
+- utter_veg_non_veg_egg
+- utter_veg
+- utter_non_veg
+- utter_egg
+- utter_anthingelse
+- utter_thanks
+- action_hello_world
